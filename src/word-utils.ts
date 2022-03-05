@@ -1,5 +1,7 @@
 import wordBank from './word-bank.json';
 
+export const LETTER_LENGTH = 5
+
 export enum LetterState {
   Miss, // Letter doesn't exist at all
   Present, // Letter exists but wrong location
@@ -8,7 +10,7 @@ export enum LetterState {
 
 export function computeGuess(
   guess: string,
-  answerString: string = word
+  answerString: string
 ): LetterState[] {
   const result: LetterState[] = [];
 
@@ -69,7 +71,6 @@ export function computeGuess(
 
   return result;
 }
-const word = getRandomWord()
 export function getRandomWord(): string {
   return wordBank.valid[Math.floor(Math.random() * wordBank.valid.length)];
 }
@@ -77,5 +78,3 @@ export function getRandomWord(): string {
 export function isValidWord(word: string): boolean {
   return wordBank.valid.concat(wordBank.invalid).includes(word);
 }
-
-console.log(word)
