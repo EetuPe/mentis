@@ -1,6 +1,6 @@
 import wordBank from './word-bank.json';
 
-export const LETTER_LENGTH = 5
+export const LETTER_LENGTH = 6
 
 export enum LetterState {
   Miss, // Letter doesn't exist at all
@@ -72,7 +72,7 @@ export function computeGuess(
   return result;
 }
 export function getRandomWord(): string {
-  return wordBank.valid[Math.floor(Math.random() * wordBank.valid.length)];
+  return (Math.floor(100000 + Math.random() * 900000)).toString();
 }
 
 export function isValidWord(word: string): boolean {
