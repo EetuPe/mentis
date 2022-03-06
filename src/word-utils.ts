@@ -3,9 +3,9 @@ import wordBank from './word-bank.json';
 export const LETTER_LENGTH = 4
 
 export enum LetterState {
+  Miss, // Letter doesn't exist at all
   Present, // Letter exists but wrong location
   Match, // Letter exists and is in the right location
-  Miss
 }
 
 export function computeGuess(
@@ -40,6 +40,8 @@ export function computeGuess(
       result.push(LetterState.Match);
     } else if (answer.includes(letter)) {
       result.push(LetterState.Present);
+    } else {
+      result.push(LetterState.Miss);
     }
   });
 
@@ -55,6 +57,13 @@ export function computeGuess(
         return;
       }
 
+      if (result[answerIndex] === LetterState.Match) {
+        result[resultIndex] = LetterState.Miss;
+      }
+
+      if (answerLetterCount[guessLetter] <= 0) {
+        result[resultIndex] = LetterState.Miss;
+      }
     });
 
     answerLetterCount[guessLetter]--;
