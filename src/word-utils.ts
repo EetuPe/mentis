@@ -5,6 +5,7 @@ export const LETTER_LENGTH = 4
 export enum LetterState {
   Present, // Letter exists but wrong location
   Match, // Letter exists and is in the right location
+  Miss
 }
 
 export function computeGuess(
