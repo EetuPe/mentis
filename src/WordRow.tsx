@@ -57,5 +57,5 @@ function PegBox({ value, state }: CharacterBoxProps) {
 const pegStateStyles = {
     [LetterState.Present]: 'bg-green-500 border-green-500',
     [LetterState.Match]: 'bg-red-500 border-red-500',
-    [LetterState.Miss]: 'bg-gray-500 border-gray-500',
+    [LetterState.Miss]: 'bg-white-500 border-white-500',
 }
