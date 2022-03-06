@@ -31,7 +31,7 @@ export default function App() {
 
   const isGameOver = state.guesses.length === GUESS_LENGTH
 
-  const shownAnswer =  isGameOver ? state.answer : '??????'
+  const shownAnswer =  isGameOver ? state.answer : '????'
 
   return (
     <div className='mx-auto w-96 relative'>
@@ -43,7 +43,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="grid grid-rows-6 gap-4">
+      <main className="grid grid-rows-7 gap-4">
         <WordRow letters={shownAnswer} />
         {rows.reverse().map((word, index) => (
           <WordRow key={index} letters={word} />

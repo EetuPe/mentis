@@ -13,30 +13,48 @@ export default function WordRow({letters: lettersProp = ''}: WordRowProps) {
   
     const guessStates = computeGuess(lettersProp, answer)
     return (
-    <div className="grid grid-cols-6 gap-4">{letters.map((char, index) => (
-        <CharacterBox key={index} value={char} state={guessStates[index]}/>
-    ))}</div>
+    <div className="grid grid-cols-5 gap-2">{letters.map((char, index) => (
+        <GuessBox key={index} value={char} state={guessStates[index]}/>
+    ))}
+    <div className="grid grid-cols-2 gap-2">
+    {letters.map((char, index) => (
+        <PegBox key={index} value={char} state={guessStates[index]}/>
+    ))}
+    </div>
+    </div>
   )
 }
+
+
 
 interface CharacterBoxProps {
     value: string;
     state?: LetterState
 }
-function CharacterBox({ value, state }: CharacterBoxProps) {
-    const stateStyles = state == null ? '' : characterStateStyles[state]
+function GuessBox({ value, state }: CharacterBoxProps) {
+    const stateStyles = state == null ? '' : pegStateStyles[state]
 
     return (
-        <div className={`inline-block border-2 border-gray-500 p-4 
+        <div className={`inline-block border-2 border-gray-500 p-1 rounded
         before:inline-block before:content-['_']
-        uppercase font-bold text-2xl text-center ${stateStyles}`}>
+        uppercase font-bold text-lg text-center`}>
             {value}
         </div>
     )
 }
 
-const characterStateStyles = {
-    [LetterState.Miss]: 'bg-gray-500 border-gray-500',
-    [LetterState.Present]: 'bg-yellow-500 border-yellow-500',
-    [LetterState.Match]: 'bg-green-500 border-green-500',
+function PegBox({ value, state }: CharacterBoxProps) {
+    const stateStyles = state == null ? '' : pegStateStyles[state]
+
+    return (
+        <div className={`inline-block border-2 border-gray-500 p-4/3 rounded 
+        uppercase font-bold text-lg text-center ${stateStyles}`}>
+            ?
+        </div>
+    )
+}
+
+const pegStateStyles = {
+    [LetterState.Present]: 'bg-green-500 border-green-500',
+    [LetterState.Match]: 'bg-red-500 border-red-500',
 }
