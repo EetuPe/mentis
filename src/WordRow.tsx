@@ -9,7 +9,7 @@ interface WordRowProps {
     guessStates: [];
 }
 
-export default function WordRow({letters: lettersProp = ''}: WordRowProps, {letters: colorsProp = ''}: WordRowProps) {
+export default function WordRow({letters: lettersProp = ''}: WordRowProps) {
     const answer = useStore(state => state.answer)
     const lettersRemaining = LETTER_LENGTH - lettersProp.length
     const letters = lettersProp.split('').concat(Array(lettersRemaining).fill(''))
