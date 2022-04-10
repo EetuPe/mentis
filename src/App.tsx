@@ -44,9 +44,9 @@ export default function App() {
       </header>
 
       <main className="grid grid-rows-7 gap-4">
-        <WordRow letters={shownAnswer} />
+        <WordRow letters={shownAnswer} colors="" guessStates={[]} />
         {rows.reverse().map((word, index) => (
-          <WordRow key={index} letters={word} />
+          <WordRow key={index} letters={word} colors="" guessStates={[]}/>
         ))}
       </main>
 
