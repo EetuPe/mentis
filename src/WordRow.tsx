@@ -1,32 +1,37 @@
+import React, { useState, useEffect } from 'react';
 import { useStore } from "./store";
 import { computeGuess, LetterState, LETTER_LENGTH } from "./word-utils";
 
 
 interface WordRowProps {
     letters: string;
+    guessStates: [];
 }
 
 export default function WordRow({letters: lettersProp = ''}: WordRowProps) {
     const answer = useStore(state => state.answer)
     const lettersRemaining = LETTER_LENGTH - lettersProp.length
     const letters = lettersProp.split('').concat(Array(lettersRemaining).fill(''))
-  
+    
     const guessStates = computeGuess(lettersProp, answer)
+    const [guessState, setGuessState] = useState(guessStates)
+
+    useEffect(() => {
+        setGuessState(guessStates.sort(() => (Math.random() > .5) ? 1 : -1))
+    }, [lettersRemaining])
+
     return (
     <div className="grid grid-cols-5 gap-2">{letters.map((char, index) => (
         <GuessBox key={index} value={char} state={guessStates[index]}/>
     ))}
     <div className="grid grid-cols-2 gap-2">
     {letters.map((char, index) => (
-        <PegBox key={index} value={char} state={guessStates[index]}/>
+        <PegBox key={index} value={char} state={guessState[index]}/>
     ))}
     </div>
     </div>
   )
 }
-
-
-
 interface CharacterBoxProps {
     value: string;
     state?: LetterState

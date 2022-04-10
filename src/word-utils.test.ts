@@ -47,10 +47,9 @@ describe('computeGuess', () => {
   });
 
   test('when 2 letters are present but answer has only 1 of those letters', () => {
-    expect(computeGuess('allol', 'smelt')).toEqual([
-      LetterState.Miss,
+    expect(computeGuess('5524', '3655')).toEqual([
       LetterState.Present,
-      LetterState.Miss,
+      LetterState.Present,
       LetterState.Miss,
       LetterState.Miss,
     ]);

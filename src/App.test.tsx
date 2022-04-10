@@ -5,6 +5,6 @@ import { render, screen } from './test/test-utils'
 describe('Simple working test', () => {
   it('the title is visible', () => {
     render(<App />)
-    expect(screen.getByText(/Reacdle/i)).toBeInTheDocument()
+    expect(screen.getByText(/Mentis/i)).toBeInTheDocument()
   })
 })

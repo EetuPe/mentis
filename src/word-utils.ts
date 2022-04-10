@@ -3,15 +3,30 @@ import wordBank from './word-bank.json';
 export const LETTER_LENGTH = 4
 
 export enum LetterState {
-  Miss, // Letter doesn't exist at all
-  Present, // Letter exists but wrong location
-  Match, // Letter exists and is in the right location
+    Miss,
+    Present,
+    Match,
 }
+
+// change color depending on what number the letter is  (0-9) and store in enum
+export enum LetterColor {
+  Red,
+  Blue,
+  Green,
+  Yellow,
+  Purple,
+  Orange,
+  Teal,
+  Pink,
+  Brown,
+  Grey,
+}
+
 
 export function computeGuess(
   guess: string,
-  answerString: string
-): LetterState[] {
+  answerString: string,
+): LetterState[]  {
   const result: LetterState[] = [];
 
   if (guess.length !== answerString.length) {
