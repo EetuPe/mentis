@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { computeGuess, isValidWord, LetterState } from './word-utils';
+import { computeGuess, ColorState, LetterState, computeColor } from './word-utils';
 
 describe('computeGuess', () => {
   test('works with match and presents', () => {
@@ -53,6 +53,15 @@ describe('computeGuess', () => {
       LetterState.Miss,
       LetterState.Miss,
     ]);
+
+  });
+  test('colors', () => {
+    expect(computeColor('5524')).toEqual([
+      ColorState.Five,
+      ColorState.Five,
+      ColorState.Two,
+      ColorState.Four,
+    ]);
   });
 
   test('when 1 letter matches but guess has more of the same letter', () => {
@@ -63,15 +72,5 @@ describe('computeGuess', () => {
       LetterState.Match,
       LetterState.Miss,
     ]);
-  });
-});
-
-describe('isValidWord', () => {
-  test('with valid word', () => {
-    expect(isValidWord('boost')).toBe(true);
-  });
-
-  test('with invalid word', () => {
-    expect(isValidWord('lulze')).toBe(false);
   });
 });

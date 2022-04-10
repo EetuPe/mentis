@@ -36,7 +36,7 @@ export default function App() {
   return (
     <div className='mx-auto w-96 relative'>
       <header className='border-b border-gray-500 pb-2 my-2'>
-        <h1 className="text-4xl text-center">Mentis</h1>
+        <h1 className="text-4xl text-center text-neutral-50">Mentis</h1>
 
         <div>
           <input type="text" className="w-1/2 p-2 border-2 border-gray-500" value={guess} onChange={onChange} disabled={isGameOver}/>
