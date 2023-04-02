@@ -47,7 +47,7 @@ export default function App() {
             disabled={isGameOver}
           />
           <button
-            className="block border rounded border-green-500 bg-green-500 p-2 mt-4 mx-auto shadow"
+            className="block border rounded border-green-500 bg-green-500 p-2 mt-4 mx-auto shadow text-white"
             onClick={() => {
               state.newGame();
               setGuess("");
