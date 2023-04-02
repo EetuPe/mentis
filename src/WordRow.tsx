@@ -52,7 +52,7 @@ export default function WordRow({
   }, [lettersRemaining]);
 
   return (
-    <div className="grid grid-cols-5 gap-2">
+    <div className="grid grid-cols-5">
       {letters.map((char, index) => (
         <GuessBox
           key={index}
@@ -61,7 +61,7 @@ export default function WordRow({
           state2={colorStates[index]}
         />
       ))}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2">
         {letters.map((char, index) => (
           <PegBox key={index} value={char} state={guessState[index]} />
         ))}
@@ -96,7 +96,7 @@ function PegBox({ value, state }: CharacterBoxProps) {
 
   return (
     <div
-      className={`inline-block border-2 border-gray-500 p-4/3 rounded 
+      className={`inline-block border-2 border-gray-500 rounded 
         uppercase font-bold text-lg text-center text-neutral-50 ${stateStyles}`}
     >
       ?

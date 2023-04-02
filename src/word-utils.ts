@@ -1,10 +1,9 @@
-
-export const LETTER_LENGTH = 4
+export const LETTER_LENGTH = 4;
 
 export enum LetterState {
-    Miss,
-    Present,
-    Match,
+  Miss,
+  Present,
+  Match,
 }
 
 // change color depending on what number the letter is  (0-9) and store in enum
@@ -23,8 +22,8 @@ export enum ColorState {
 
 export function computeGuess(
   guess: string,
-  answerString: string,
-): LetterState[]  {
+  answerString: string
+): LetterState[] {
   const result: LetterState[] = [];
   const result2: ColorState[] = [];
 
@@ -32,9 +31,9 @@ export function computeGuess(
     return result;
   }
 
-  const answer = answerString.split('');
+  const answer = answerString.split("");
 
-  const guessAsArray = guess.split('');
+  const guessAsArray = guess.split("");
 
   const answerLetterCount: Record<string, number> = {};
 
@@ -79,7 +78,6 @@ export function computeGuess(
     } else if (currentAnswerLetter === "9") {
       result2.push(ColorState.Nine);
     }
-
   });
 
   result.forEach((curResult, resultIndex) => {
@@ -107,18 +105,14 @@ export function computeGuess(
   });
 
   return result;
- 
 }
 
-export function computeColor(
-  guess: string,
-): ColorState[]  {
+export function computeColor(guess: string): ColorState[] {
   const result2: ColorState[] = [];
 
-  const guessAsArray = guess.split('');
+  const guessAsArray = guess.split("");
 
   guessAsArray.forEach((letter, index) => {
-
     if (guessAsArray[index] === "0") {
       result2.push(ColorState.Zero);
     } else if (guessAsArray[index] === "1") {
@@ -140,13 +134,10 @@ export function computeColor(
     } else if (guessAsArray[index] === "9") {
       result2.push(ColorState.Nine);
     }
-
   });
-  return result2
+  return result2;
 }
-
 
 export function getRandomWord(): string {
-  return (Math.floor(1000 + Math.random() * 9000)).toString();
+  return Math.floor(1000 + Math.random() * 9000).toString();
 }
-
