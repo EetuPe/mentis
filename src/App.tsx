@@ -41,10 +41,10 @@ export default function App() {
   return (
     <body className="min-h-screen flex items-center justify-center">
       <div className="grid grid-cols-5">
-        <header className="p-2 m-2">
+        <div className="grid col-start-1 p-2 m-2">
           <h1 className="text-4xl text-center text-neutral-50">Mentis</h1>
           <button
-            className="block border rounded border-green-500 bg-green-500 p-2 mt-4 mx-auto shadow text-white"
+            className="block border rounded border-green-500 bg-green-500 p-2 mx-auto shadow text-white h-1/6"
             onClick={() => {
               state.newGame();
               setFinalGuess("");
@@ -52,7 +52,7 @@ export default function App() {
           >
             New Game
           </button>
-        </header>
+        </div>
         <div className="grid col-start-2 col-span-4">
           <WordRow letters={shownAnswer} colors="" guessStates={[]} />
           {rows.reverse().map((word, index) => (
