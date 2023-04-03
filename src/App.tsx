@@ -4,11 +4,14 @@ import { CODE_LENGTH } from "./word-utils";
 import WordRow from "./WordRow";
 
 const GUESS_LENGTH = 10;
+
+type onChange = any;
+
 export default function App() {
   const state = useStore();
   const [finalGuess, setFinalGuess] = useState("");
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange: onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newGuess = e.target.value;
 
     if (finalGuess.length === CODE_LENGTH) {
