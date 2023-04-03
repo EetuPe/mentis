@@ -62,7 +62,7 @@ export default function App() {
           </button>
         </div>
       </header>
-      <div className="grid grid-cols-1">
+      <div className="grid grid-flow-col-dense">
         <WordRow letters={shownAnswer} colors="" guessStates={[]} />
         {rows.reverse().map((word, index) => (
           <WordRow key={index} letters={word} colors="" guessStates={[]} />
