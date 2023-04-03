@@ -1,4 +1,4 @@
-export const LETTER_LENGTH = 4;
+export const CODE_LENGTH = 4;
 
 export enum LetterState {
   Miss,
@@ -16,8 +16,6 @@ export enum ColorState {
   Five,
   Six,
   Seven,
-  Eight,
-  Nine,
 }
 
 export function computeGuess(
@@ -73,10 +71,6 @@ export function computeGuess(
       result2.push(ColorState.Six);
     } else if (currentAnswerLetter === "7") {
       result2.push(ColorState.Seven);
-    } else if (currentAnswerLetter === "8") {
-      result2.push(ColorState.Eight);
-    } else if (currentAnswerLetter === "9") {
-      result2.push(ColorState.Nine);
     }
   });
 
@@ -129,15 +123,15 @@ export function computeColor(guess: string): ColorState[] {
       result2.push(ColorState.Six);
     } else if (guessAsArray[index] === "7") {
       result2.push(ColorState.Seven);
-    } else if (guessAsArray[index] === "8") {
-      result2.push(ColorState.Eight);
-    } else if (guessAsArray[index] === "9") {
-      result2.push(ColorState.Nine);
     }
   });
   return result2;
 }
 
 export function getRandomWord(): string {
-  return Math.floor(1000 + Math.random() * 9000).toString();
+  let randomNumber = "";
+  for (let i = 0; i < CODE_LENGTH; i++) {
+    randomNumber += Math.floor(Math.random() * 8);
+  }
+  return randomNumber;
 }

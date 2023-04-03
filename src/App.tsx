@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useStore } from "./store";
-import { LETTER_LENGTH } from "./word-utils";
+import { CODE_LENGTH } from "./word-utils";
 import WordRow from "./WordRow";
 
 const GUESS_LENGTH = 10;
@@ -11,7 +11,7 @@ export default function App() {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newGuess = e.target.value;
 
-    if (newGuess.length === LETTER_LENGTH) {
+    if (newGuess.length === CODE_LENGTH) {
       state.addGuess(newGuess);
       setGuess("");
       return;
@@ -31,7 +31,9 @@ export default function App() {
 
   const isGameOver = state.guesses.length === GUESS_LENGTH;
 
-  const shownAnswer = isGameOver ? state.answer : "????";
+  const questionMarks = Array(CODE_LENGTH).fill("?").join("");
+
+  const shownAnswer = isGameOver ? state.answer : questionMarks;
 
   return (
     <body className="min-h-screen flex items-center justify-center">

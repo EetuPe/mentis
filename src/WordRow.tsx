@@ -5,7 +5,7 @@ import {
   computeColor,
   LetterState,
   ColorState,
-  LETTER_LENGTH,
+  CODE_LENGTH,
 } from "./word-utils";
 
 interface WordRowProps {
@@ -23,8 +23,6 @@ const guessStateStyles = {
   [ColorState.Five]: "bg-orange-500 border-orange-500",
   [ColorState.Six]: "bg-teal-500 border-teal-500",
   [ColorState.Seven]: "bg-pink-500 border-pink-500",
-  [ColorState.Eight]: "bg-yellow-900 border-yellow-900",
-  [ColorState.Nine]: "bg-stone-600 border-stone-600",
 };
 
 const pegStateStyles = {
@@ -38,7 +36,7 @@ export default function WordRow({
   colors: colorsProp = "",
 }: WordRowProps) {
   const answer = useStore((state) => state.answer);
-  const lettersRemaining = LETTER_LENGTH - lettersProp.length;
+  const lettersRemaining = CODE_LENGTH - lettersProp.length;
   const letters = lettersProp
     .split("")
     .concat(Array(lettersRemaining).fill(""));
@@ -52,7 +50,7 @@ export default function WordRow({
   }, [lettersRemaining]);
 
   return (
-    <div className="grid grid-cols-5">
+    <div className={`grid grid-cols-${CODE_LENGTH + 1}`}>
       {letters.map((char, index) => (
         <GuessBox
           key={index}
