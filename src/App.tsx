@@ -41,35 +41,33 @@ export default function App() {
   return (
     <body className="min-h-screen flex items-center justify-center">
       <div className="grid grid-cols-5">
-        <header className="p-2 m-2">
-          <h1 className="text-4xl text-center text-neutral-50">Mentis</h1>
+        <h1 className="text-4xl text-center text-neutral-50 p-2 m-2">Mentis</h1>
 
-          <div>
-            {/* <input
+        <div>
+          {/* <input
             type="text"
             className="w-full rounded p-2 border-2 border-gray-500"
             value={finalGuess}
             onChange={onChange}
             disabled={isGameOver}
           /> */}
-            <button
-              className="block border rounded border-green-500 bg-green-500 p-2 mt-4 mx-auto shadow text-white"
-              onClick={() => {
-                state.newGame();
-                setFinalGuess("");
-              }}
-            >
-              New Game
-            </button>
-          </div>
-        </header>
+          <button
+            className="block border rounded border-green-500 bg-green-500 p-2 mt-4 mx-auto shadow text-white"
+            onClick={() => {
+              state.newGame();
+              setFinalGuess("");
+            }}
+          >
+            New Game
+          </button>
+        </div>
         <div className="grid col-start-2 col-span-4">
           <WordRow letters={shownAnswer} colors="" guessStates={[]} />
           {rows.reverse().map((word, index) => (
             <WordRow key={index} letters={word} colors="" guessStates={[]} />
           ))}
         </div>
-        <div className="grid col-start-6 p-2 h-3/4 m-2">
+        <div className="grid col-start-6 p-2 h-3/4 mr-2">
           <button
             className={`btn border-2 bg-red-500 border-red-500 w-full h-full rounded font-bold text-lg align-middle text-neutral-50`}
             onClick={onChange}
