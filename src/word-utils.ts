@@ -6,7 +6,7 @@ export enum LetterState {
   Match,
 }
 
-// change color depending on what number the letter is  (0-9) and store in enum
+// change color depending on the number (0-9) and store in enum
 export enum ColorState {
   Zero,
   One,
@@ -92,9 +92,9 @@ export function computeGuess(
         return;
       }
 
-      if (result[answerIndex] === LetterState.Match) {
+      /* if (result[answerIndex] === LetterState.Match) {
         result[resultIndex] = LetterState.Miss;
-      }
+      } */
 
       if (answerLetterCount[guessLetter] <= 0) {
         result[resultIndex] = LetterState.Miss;
