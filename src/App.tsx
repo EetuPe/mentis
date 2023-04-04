@@ -38,9 +38,11 @@ export default function App() {
 
   const shownAnswer = isGameOver ? state.answer : questionMarks;
 
+  const columnsLength = CODE_LENGTH + 1;
+
   return (
     <body className="min-h-screen flex items-center justify-center">
-      <div className="grid grid-cols-5">
+      <div className={`grid grid-cols-5`}>
         <div className="grid col-start-1 p-2 m-2">
           <h1 className="text-4xl text-center text-neutral-50">Mentis</h1>
           <button

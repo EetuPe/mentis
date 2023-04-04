@@ -86,9 +86,9 @@ export function computeGuess(
         return;
       }
 
-      /* if (result[answerIndex] === LetterState.Match) {
+      if (result[answerIndex] === LetterState.Match) {
         result[resultIndex] = LetterState.Miss;
-      } */
+      }
 
       if (answerLetterCount[guessLetter] <= 0) {
         result[resultIndex] = LetterState.Miss;

@@ -84,7 +84,7 @@ function GuessBox({ value, state2 }: GuessBoxProps) {
     <button
       className={`btn border-2 border-gray-500 w-full h-full rounded font-bold text-lg align-middle text-neutral-50 ${stateStyles2}`}
     >
-      {value}
+      {/* {value} */}
     </button>
   );
 }
