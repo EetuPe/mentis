@@ -50,7 +50,7 @@ export default function WordRow({
   }, [lettersRemaining]);
 
   return (
-    <div className={`grid grid-cols-${CODE_LENGTH + 1}`}>
+    <div className="grid grid-cols-[repeat(5,1fr)_80px] gap-2">
       {letters.map((char, index) => (
         <GuessBox
           key={index}
@@ -59,9 +59,9 @@ export default function WordRow({
           state2={colorStates[index]}
         />
       ))}
-      <div className="grid grid-cols-2">
-        {letters.map((char, index) => (
-          <PegBox key={index} value={char} state={guessState[index]} />
+      <div className="grid grid-cols-2 gap-1">
+        {guessState.map((state, index) => (
+          <PegBox key={index} value={letters[index]} state={state} />
         ))}
       </div>
     </div>
@@ -81,11 +81,15 @@ function GuessBox({ value, state2 }: GuessBoxProps) {
   const stateStyles2 = state2 == null ? "" : guessStateStyles[state2];
 
   return (
-    <button
-      className={`btn border-2 border-gray-500 w-full h-full rounded font-bold text-lg align-middle text-neutral-50 ${stateStyles2}`}
-    >
-      {/* {value} */}
-    </button>
+    <div className="aspect-square">
+      <button
+        className={`btn border-2 border-gray-500 w-full h-full rounded font-bold text-lg align-middle text-neutral-50
+        ${stateStyles2}
+        ${state2 != null ? 'scale-110 transition-transform duration-300' : ''}`}
+      >
+        {/* {value} */}
+      </button>
+    </div>
   );
 }
 
@@ -93,11 +97,13 @@ function PegBox({ value, state }: CharacterBoxProps) {
   const stateStyles = state == null ? "" : pegStateStyles[state];
 
   return (
-    <div
-      className={`inline-block border-2 border-gray-500 rounded 
-        uppercase font-bold text-lg text-center text-neutral-50 ${stateStyles}`}
-    >
-      ?
+    <div className="aspect-square">
+      <div
+        className={`w-full h-full border-2 border-gray-500 rounded
+          uppercase font-bold text-lg flex items-center justify-center text-neutral-50 ${stateStyles}`}
+      >
+        ?
+      </div>
     </div>
   );
 }
