@@ -67,7 +67,6 @@ export default function App() {
                 letters={word} 
                 colors="" 
                 guessStates={[]}
-                className="bg-slate-700 p-2 rounded-md" 
               />
             ))}
           </div>
