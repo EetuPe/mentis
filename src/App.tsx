@@ -14,12 +14,11 @@ export default function App() {
   const onChange: onChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     const newGuess = e.currentTarget.value;
 
-    if (finalGuess.length < CODE_LENGTH - 1) {
+    if (finalGuess.length < CODE_LENGTH) {
       setFinalGuess(finalGuess + newGuess);
-    } else if (finalGuess.length === CODE_LENGTH - 1) {
-      const completeGuess = finalGuess + newGuess;
-      state.addGuess(completeGuess);
-      setFinalGuess("");
+    } else {
+      state.addGuess(finalGuess);
+      setFinalGuess(newGuess);
     }
   };
 
