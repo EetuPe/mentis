@@ -41,7 +41,7 @@ export default function WordRow({
     .split("")
     .concat(Array(lettersRemaining).fill(""));
 
-  const guessStates = computeGuess(lettersProp, answer);
+  const guessStates = computeGuess(lettersProp, answer) || [];
   const colorStates = computeColor(lettersProp);
   const [guessState, setGuessState] = useState(guessStates);
 
@@ -53,7 +53,7 @@ export default function WordRow({
     <div className={`grid grid-cols-${CODE_LENGTH + 1}`}>
       {letters.map((char, index) => (
         <GuessBox
-          key={index}
+          key={`${char}-${index}`}
           value={char}
           state={guessStates[index]}
           state2={colorStates[index]}
