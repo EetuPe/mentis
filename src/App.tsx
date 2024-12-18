@@ -40,14 +40,14 @@ export default function App() {
   const shownAnswer = isGameOver ? state.answer : questionMarks;
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col items-center p-4">
-      <h1 className="text-5xl font-bold text-neutral-50 mb-8">Mentis</h1>
+    <div className="min-h-screen bg-slate-900 flex flex-col items-center p-2">
+      <h1 className="text-3xl md:text-4xl font-bold text-neutral-50 mb-4 md:mb-6">Mentis</h1>
       
-      <div className="w-full max-w-3xl flex flex-col md:flex-row gap-8 justify-center items-center">
-        <div className="w-full md:w-2/3 bg-slate-800 rounded-lg p-6 shadow-xl min-h-[600px]">
-          <div className="flex justify-between items-center mb-6">
+      <div className="w-full max-w-5xl flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-start">
+        <div className="w-full sm:w-2/3 bg-slate-800 rounded-lg p-4 md:p-6 shadow-xl">
+          <div className="flex justify-between items-center mb-4 md:mb-6">
             <button
-              className="px-4 py-2 bg-green-500 hover:bg-green-600 rounded-md text-white font-medium transition-colors"
+              className="px-3 py-1.5 md:px-4 md:py-2 bg-green-500 hover:bg-green-600 rounded-md text-white font-medium transition-colors text-sm md:text-base"
               onClick={() => {
                 state.newGame();
                 setFinalGuess("");
@@ -55,12 +55,12 @@ export default function App() {
             >
               New Game
             </button>
-            <div className="bg-slate-700 p-3 rounded-md">
+            <div className="bg-slate-700 p-2 md:p-3 rounded-md">
               <WordRow letters={shownAnswer} colors="" guessStates={[]} />
             </div>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5 md:space-y-2">
             {rows.reverse().map((word, index) => (
               <WordRow 
                 key={index} 
@@ -72,7 +72,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-1 gap-3 w-full md:w-auto">
+        <div className="grid grid-cols-4 sm:grid-cols-3 gap-2 md:gap-3 w-full sm:w-auto">
           {[0, 1, 2, 3, 4, 5, 6, 7].map((num) => {
             const colors = {
               0: "bg-red-500 hover:bg-red-600",
@@ -88,7 +88,7 @@ export default function App() {
             return (
               <button
                 key={num}
-                className={`${colors} w-16 h-16 rounded-lg shadow-lg transition-transform hover:scale-105`}
+                className={`${colors} w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg transition-transform hover:scale-105`}
                 onClick={onChange}
                 value={num}
               />
