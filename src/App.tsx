@@ -72,28 +72,30 @@ export default function App() {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 sm:grid-cols-3 gap-2 md:gap-3 w-full sm:w-auto">
-          {[0, 1, 2, 3, 4, 5, 6, 7].map((num) => {
-            const colors = {
-              0: "bg-red-500 hover:bg-red-600",
-              1: "bg-sky-400 hover:bg-sky-500",
-              2: "bg-lime-500 hover:bg-lime-600", 
-              3: "bg-yellow-400 hover:bg-yellow-500",
-              4: "bg-purple-500 hover:bg-purple-600",
-              5: "bg-orange-500 hover:bg-orange-600",
-              6: "bg-teal-500 hover:bg-teal-600",
-              7: "bg-pink-500 hover:bg-pink-600"
-            }[num];
+        <div className="flex flex-col items-center">
+          <div className="grid grid-cols-4 sm:grid-cols-3 gap-2 md:gap-3 w-full sm:w-auto">
+            {[0, 1, 2, 3, 4, 5, 6, 7].map((num) => {
+              const colors = {
+                0: "bg-red-500 hover:bg-red-600",
+                1: "bg-sky-400 hover:bg-sky-500",
+                2: "bg-lime-500 hover:bg-lime-600", 
+                3: "bg-yellow-400 hover:bg-yellow-500",
+                4: "bg-purple-500 hover:bg-purple-600",
+                5: "bg-orange-500 hover:bg-orange-600",
+                6: "bg-teal-500 hover:bg-teal-600",
+                7: "bg-pink-500 hover:bg-pink-600"
+              }[num];
 
-            return (
-              <button
-                key={num}
-                className={`${colors} w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg transition-transform hover:scale-105`}
-                onClick={onChange}
-                value={num}
-              />
-            );
-          })}
+              return (
+                <button
+                  key={num}
+                  className={`${colors} w-12 h-12 md:w-12 md:h-12 rounded-lg shadow-lg transition-transform hover:scale-105`}
+                  onClick={onChange}
+                  value={num}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
